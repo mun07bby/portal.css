@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URA - TIN Registration Portal</title>
+  <link rel="stylesheet" href="portal.css">
+</head>
+<body>
+
+  <!-- (a) Branded Header -->
+  <header class="portal-header">
+    <img src="images/ura-logo.png" alt="Uganda Revenue Authority Logo">
+    <div class="header-text">
+      <h1>TIN Registration Portal</h1>
+      <p>Uganda Revenue Authority — Developing Uganda Together</p>
+    </div>
+  </header>
+
+  <!-- (a) Gold Information Bar -->
+  <div class="info-bar">
+    Have your National ID ready before starting.
+  </div>
+
+  <!-- Centered Form Card -->
+  <main class="form-container">
+    <form action="#" method="post" enctype="multipart/form-data">
+
+      <!-- (a) Toggle-Style Radio Buttons -->
+      <div class="toggle-group">
+        <input type="radio" id="taxpayer-individual" name="taxpayer_type" value="individual" checked>
+        <label for="taxpayer-individual">Individual Taxpayer</label>
+
+        <input type="radio" id="taxpayer-business" name="taxpayer_type" value="business">
+        <label for="taxpayer-business">Business Entity</label>
+      </div>
+
+      <!-- (b) Section A Fieldset -->
+      <fieldset>
+        <legend>Section A: Individual Taxpayer Details</legend>
+
+        <!-- Row 1: Full Name & NIN -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="full-name">Full Name <span class="required-star">*</span></label>
+            <input type="text" id="full-name" name="full_name" placeholder="e.g. Namukasa Gloria" required>
+            <span class="helper-text">Enter your names exactly as they appear on your National ID.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="nin">National Identification Number (NIN) <span class="required-star">*</span></label>
+            <input
+              type="text"
+              id="nin"
+              name="nin"
+              maxlength="14"
+              pattern="[A-Z]{2}[A-Z0-9]{12}"
+              title="14 characters: 2 capital letters followed by 12 capital letters or digits"
+              placeholder="CM90012345678A"
+              required>
+            <span class="helper-text">Format: 2 capital letters + 12 characters (14 total).</span>
+          </div>
+        </div>
+
+        <!-- Row 2: Date of Birth & Gender -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob">
+          </div>
+
+          <div class="form-group">
+            <label>Gender</label>
+            <div class="radio-inline">
+              <label for="gender-male">
+                <input type="radio" id="gender-male" name="gender" value="Male"> Male
+              </label>
+              <label for="gender-female">
+                <input type="radio" id="gender-female" name="gender" value="Female"> Female
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: District & Phone -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="district">District</label>
+            <select id="district" name="district">
+              <option value="">-- Select Your District --</option>
+              <option value="Kampala">Kampala</option>
+              <option value="Wakiso">Wakiso</option>
+              <option value="Mukono">Mukono</option>
+              <option value="Mbarara">Mbarara</option>
+              <option value="Gulu">Gulu</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number <span class="required-star">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="e.g. 0772123456" required>
+            <span class="helper-text">Active Ugandan mobile number for SMS alerts.</span>
+          </div>
+        </div>
+
+        <!-- Row 4: Email -->
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="e.g. taxpayer@example.com">
+        </div>
+
+        <!-- Row 5: Upload National ID -->
+        <div class="form-group">
+          <label for="national-id-upload">Upload National ID</label>
+          <div class="file-box">
+            <input type="file" id="national-id-upload" name="national_id_file" accept=".jpg,.pdf">
+            <span class="helper-text">Accepted formats: .jpg or .pdf only (clear scan or photo of front side).</span>
+          </div>
+        </div>
+
+        <!-- Submit / Next Action -->
+        <div class="form-actions">
+          <button type="submit" class="btn-next">Next &rarr;</button>
+        </div>
+      </fieldset>
+
+    </form>
+  </main>
+
+</body>
+</html>
